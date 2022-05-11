@@ -1,0 +1,3 @@
+text = input("km");#
+value = int(text) * 1000;#
+print(value+"cm");

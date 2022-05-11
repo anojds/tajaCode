@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(/static/css/style.css);  
+    </style>
+        <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@100;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="world_wrap">
+        <div class="word">
+            <div class="lan_info">
+                <div id="lan_progress">
+                </div>
+                <span id="lan_name"><%= name %> ( 0% )</span>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <span class="timer_title">타이머</span>
+        <span id="timer_value">00:00</span>
+        <span class="ota_title">오타</span>
+        <span id="ota_value">0개</span>
+        <span class="keyboard_title">입력할 단어</span>
+        <span id="now_code" class="keyboard"></span>
+    </div>
+    <script type="text/javascript" src="/static/js/timer.js"></script>
+    <script>
+        var codeText = `<%= data %>`;
+        var codeName = `<%= name %>`;
+        codeText = codeText.replace(/&#34;/g, '"');
+    </script>
+    <script type="text/javascript" src="/static/js/handleText.js"></script>
+</body>
+</html>
