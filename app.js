@@ -17,7 +17,7 @@ app.get(`/code/:id`,(req,res) => {
             if (err) {
                 console.error(err);
             } else {
-                res.render('code.ejs', {'data' : data, 'name': json[i].name})
+                res.render('code.ejs', {'data' : data, 'name': json[i].name, 'language': json[i].language})
             }
           });
     })

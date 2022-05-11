@@ -1,7 +1,7 @@
 [  
     {
         "name": "디스코드 웹훅 전송하기",
-        "language": "js",
+        "language": "javascript",
         "fileName": "discord_webhook"
     },
     {
@@ -11,7 +11,7 @@
     },
     {
         "name": "km를 cm으로 변환하기",
-        "language": "py",
+        "language": "python",
         "fileName": "kmtocm"
     }
 ]

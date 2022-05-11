@@ -49,8 +49,8 @@ window.addEventListener("keydown", (e) => keyboard_down(e.key));
 function changeProgress() {
     keyIndex = keyIndex + 1;
     keyIndexv = keyIndex / text.length * 100;
-    document.getElementById('lan_progress').style.width = keyIndexv + "%";
-    document.getElementById('lan_name').innerText = codeName + " ( " + Math.floor(keyIndexv) + "% )";
+    document.getElementById('header_progress').style.width = keyIndexv + "%";
+    document.getElementById('header_percent').innerText = Math.floor(keyIndexv) + "%";
 }
 
 function keyboard_down(key) {
@@ -62,9 +62,9 @@ function keyboard_down(key) {
         select_span.className = 'clear';
         clearInterval(timer)
     } else {
-        oneTimef()
         if (text[index] === key) {
             changeProgress()
+            oneTimef()
             document.getElementById(index).className = 'not';
             const select_span = document.getElementById(index);
             select_span.className = 'not';

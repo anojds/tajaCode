@@ -7,11 +7,11 @@ body {
 /* 단어 div */
 .word {
     min-width: 100%;
-    height: 96.6vh;
+    height: 100vh;
     align-items: center;
     font-family: Hack, monospace;
     font-weight: 100;
-    padding: 40px 10px 10px 10px;
+    padding: 60px 10px 10px 10px;
     line-height: 1.5em;
     overflow-y: auto;
 }
@@ -25,34 +25,6 @@ body {
     flex-wrap: wrap;
     width: 70%;
     height: 100%;
-}
-
-.lan_info {
-    width: 100%;
-    height: 33px;
-    background-color: rgb(177, 250, 192);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-#lan_progress {
-    background-color: rgb(36, 196, 68);
-    width: 0%;
-    height: 100%;
-}
-
-#lan_name {
-    color: rgb(0, 127, 99);
-    font-weight: 400;
-    font-family: 'Do Hyeon', sans-serif;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }
 
 .info {
