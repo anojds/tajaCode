@@ -8,6 +8,7 @@ var oneTime = true;
 var ota = 0;
 var keyIndex = 0;
 var keyIndexv = 0;
+var pressIndex = 0;
 function getTxtFile() {
     var now_code = document.getElementsByClassName('word')[0];
 
@@ -54,17 +55,19 @@ function changeProgress() {
 }
 
 function keyboard_down(key) {
+    pressIndex++
     if (index === text.length - 1) {
         changeProgress()
         document.getElementById(index).className = 'not';
         const select_span = document.getElementById(index);
         select_span.className = 'not';
         select_span.className = 'clear';
-        clearInterval(timer)
+        clearInterval(timer);
     } else {
         if (text[index] === key) {
-            changeProgress()
-            oneTimef()
+            document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
+            changeProgress();
+            oneTimef();
             document.getElementById(index).className = 'not';
             const select_span = document.getElementById(index);
             select_span.className = 'not';
@@ -80,6 +83,7 @@ function keyboard_down(key) {
             }
             return;
         } else if (key === "Enter" && document.getElementById(index).tagName === "BR") {
+            document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
             changeProgress()
             document.getElementById(index).className = 'not';
             const select_span = document.getElementById(index);
@@ -97,7 +101,9 @@ function keyboard_down(key) {
         } else if (key === "Shift") {
             return;
         } else {
+            document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
             ota = ota + 1;
+            document.getElementById('endDiv_list_2_value').innerText = ota + "개";
             document.getElementById('ota_value').innerText = ota + "개";
             return;
         }

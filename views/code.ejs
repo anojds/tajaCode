@@ -9,22 +9,54 @@
     <style>
         @import url(/static/css/style.css);
         @import url(/static/css/header.css);
+        @import url(/static/css/codeMediaQuery.css);
     </style>
     <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@100;700;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@100;700;800;900&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <div class="endDiv_wrapper">
+        <div class="endDiv">
+            <img src="/static/img/icon/like.png" width="30" height="30" style="margin-top: 15px">
+            
+            <span class="endDiv_title2" style="margin-top: 10px;font-size: 13px;">
+                <%= name %>
+            </span>
+            <span class="endDiv_title">끝났습니다!</span>
+
+            <img src="/static/img/icon/statistic.png" width="40" height="40" style="margin-top: 40px;">
+            <span style="color: rgb(108, 108, 108)">통계</span>
+
+            <div class="endDiv_list">
+                <div class="endDiv_list_1">
+                    <span class="endDiv_list_1_title">경과 시간</span>
+                    <span id="endDiv_list_1_value">00:00</span>
+                </div>
+                <div class="endDiv_list_2">
+                    <span class="endDiv_list_2_title">오타 수</span>
+                    <span id="endDiv_list_2_value">0개</span>
+                </div>
+                <div class="endDiv_list_3">
+                    <span class="endDiv_list_3_title">키보드 입력수</span>
+                    <span id="endDiv_list_3_value">0번</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="header_wrapper">
         <div class="header">
-            <img src="/static/img/icon/icon.png" width="30" height="30" alt="icon" style="margin-left: 20px;">
-
-            <div class="title_language">
-                <span class="title_language_1"><%= language %></span>
-                <span><%= name %></span>
+            <div class="header_wrapper2">
+                <img src="/static/img/icon/icon.png" width="33" height="30" alt="icon" style="margin-left: 15px;">
+                <span class="title_language_2">
+                    <%= name %>
+                </span>
+                <span class="title_language_1">
+                    #<%= language %>
+                </span>
             </div>
             <span id="header_percent">0%</span>
         </div>
@@ -50,6 +82,7 @@
         var codeText = `<%= data %>`;
         var codeName = `<%= name %>`;
         codeText = codeText.replace(/&#34;/g, '"');
+        window.addEventListener("keydown", (e) => event.keyCode == 32 ? event.preventDefault() : false)
     </script>
     <script type="text/javascript" src="/static/js/handleText.js"></script>
 </body>

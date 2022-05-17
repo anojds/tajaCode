@@ -6,12 +6,12 @@ body {
 
 /* 단어 div */
 .word {
-    min-width: 100%;
-    height: 100vh;
+    height: 90vh;
+    width: 70vw;
     align-items: center;
     font-family: Hack, monospace;
     font-weight: 100;
-    padding: 60px 10px 10px 10px;
+    padding: 60px 15px 60px 15px;
     line-height: 1.5em;
     overflow-y: auto;
 }
@@ -34,7 +34,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid rgb(238, 238, 238);
+    border: 1.5px solid #E5E6E8;
     min-width: 220px; 
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .clear {
-    color: rgb(0, 0, 0);
+    color: #383F45;
     font-weight: 700;
 }
 
@@ -110,4 +110,105 @@ body {
     background-color: #f00;
     position: position;
     top: 0px;
+}
+
+.endDiv_wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.endDiv {
+    background-color: #fff;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1.5px solid #D4D4D4;
+    box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.251);
+}
+
+.endDiv_list {
+    margin-top: 10px;
+}
+
+.endDiv_title {
+    width: 100%;
+    background-color: rgb(14, 98, 225);
+    font-weight: 900;
+    font-size: 35px;
+    text-align: center;
+    color: #fff;
+    transform: rotate(1deg);
+}
+
+.endDiv_title2 {
+    font-weight: 700;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    transform: rotate(1deg);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.endDiv_list_1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.endDiv_list_1_title {
+    color: rgb(75, 75, 75);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#endDiv_list_1_value {
+    font-size: 20px;
+    color: #c5c5c6;
+}
+
+.endDiv_list_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.endDiv_list_2_title {
+    color: rgb(75, 75, 75);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#endDiv_list_2_value {
+    font-size: 20px;
+    color: #c5c5c6;
+}
+
+.endDiv_list_3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.endDiv_list_3_title {
+    color: rgb(75, 75, 75);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#endDiv_list_3_value {
+    font-size: 20px;
+    color: #c5c5c6;
 }

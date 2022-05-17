@@ -9,6 +9,7 @@ function timer() {
         min = min + 1;
     }
     timerText.innerText = `${min}:${sec}`;
+    document.getElementById('endDiv_list_1_value').innerText = `${min}:${sec}`;
 }
 
 function start() {

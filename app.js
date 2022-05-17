@@ -9,21 +9,40 @@ app.set('view engine', 'ejs');
 app.use('/static', express.static(__dirname + '/public'));
 
 
-app.get(`/code/:id`,(req,res) => {
-    fs.readFile(`public/json/list.json`, "utf8", (err, data) => {
-        var json = JSON.parse(data);
-        let i = req.params.id;
-        fs.readFile(`public/code/${json[i].language}/${json[i].fileName}.txt`, "utf8", (err, data) => {
-            if (err) {
-                console.error(err);
-            } else {
-                res.render('code.ejs', {'data' : data, 'name': json[i].name, 'language': json[i].language})
-            }
-          });
-    })
+app.get(`/code/:id`, (req, res) => {
+    try {
+        fs.readFile(`public/json/list.json`, "utf8", (err, data) => {
+            var json = JSON.parse(data);
+            let i = req.params.id;
+            fs.readFile(`public/code/${json[i].language}/${json[i].fileName}.txt`, "utf8", (err, data) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    res.render('code.ejs', { 'data': data, 'name': json[i].name, 'language': json[i].language })
+                }
+            });
+        })
+    } catch (e) {
+        console.log(e)
+    }
 });
 
+app.get(`/list/:lang`, (req, res) => {
+    fs.readFile(`public/json/list.json`, "utf8", (err, data) => {
+        res.render('listDetail.ejs', { 'json': data, 'language': req.params.lang})
+    })
+})
+app.get(`/list`, (req, res) => {
+    fs.readFile(`public/json/language.json`, "utf8", (err, data) => {
+        res.render('list.ejs', { 'json': data })
+    })
+})
 
-app.listen(port,()=>{
+app.get(`/`, (req, res) => {
+    res.render('home.ejs')
+})
+
+
+app.listen(port, () => {
     console.log("Express server on port 3000!");
 });
