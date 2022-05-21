@@ -45,10 +45,12 @@ body {
     margin-top: 30px;
     background-color: #fff;
     border: 0px;
-    border-radius: 30px;
+    border-radius: 100px;
     padding: 11px 25px 11px 25px;
     font-weight: 900;
     color: #1e5ff6;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
 }
 
 .start_button:hover {
@@ -111,6 +113,8 @@ footer {
 .content_wrap_2_subtitle {
     color: rgb(23, 26, 30);
     margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 .content_wrap_3 {
@@ -120,6 +124,7 @@ footer {
     height: 100vh;
     align-items: center;
     justify-content: space-between;
+    background-color: #F6F6F6;
 }
 
 .content_wrap_3_title {
@@ -133,6 +138,8 @@ footer {
     color: rgb(23, 26, 30);
     margin-top: 30px;
     margin-left: 80px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
 }
 
 
@@ -148,4 +155,21 @@ footer {
 .title_img_icon {
     width: 40px;
     height: 40px;
+}
+
+.content_main_img {
+    width: 45%;
+    margin-left: 30px
+}
+
+.content_main_img {
+    margin-right: 50px;
+    max-width: 678px;
+    max-height: 340px;
+}
+
+.content_main_img2 {
+    margin-right: 50px;
+    max-width: 678px;
+    max-height: 340px;
 }
