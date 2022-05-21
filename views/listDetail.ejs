@@ -12,13 +12,14 @@
 <body>
     <header>
         <div class="header">
-                <img src="/static/img/icon/icon.png" width="33" height="33" alt="icon" style="margin-left: 15px;">
+                <img src="/static/img/icon/icon.png" width="33" height="30" alt="icon" style="margin-left: 15px;">
                 <span class="title_language_2">
                     코드를 선택해주세요
                 </span>
                 <span class="title_language_1">
                     #<%= language %>
                 </span>
+                <img src="/static/img/icon/moon.png" width="25" height="25" class="togle_thema_icon" onclick="togle_thema()">
         </div>
     </header>
     <div class="content">
@@ -28,5 +29,45 @@
         var lan = `<%= language %>`;
     </script>
     <script type="text/javascript" src="/static/js/handleLanguageListForDetail.js"></script>
+
+    <script>
+        function click() {
+            console.log("asd")
+        }
+    </script>
+
+<script>
+    togle = JSON.parse(localStorage.getItem("thema"))
+    function darkmode() {
+        document.querySelector('body').dataset.theme = 'dark';
+        document.querySelector('.header').dataset.theme = 'dark';
+        document.querySelector('.title_language_2').dataset.theme = 'dark';
+        document.querySelector('.togle_thema_icon').src = '/static/img/icon/sun.png';
+        for (var i = 0; i < document.querySelectorAll('.list').length;i++){
+            document.querySelectorAll('.list')[i].dataset.theme = 'dark';
+            document.querySelectorAll('.code_redirect_icon')[i].src = '/static/img/icon/list_code_dark.png';
+            document.querySelectorAll('.code_line_icon')[i].src = '/static/img/icon/line-dark.png';
+        }
+    }
+    function whitemode() {
+        document.querySelector('body').dataset.theme = 'none';
+        document.querySelector('.header').dataset.theme = 'none';
+        document.querySelector('.title_language_2').dataset.theme = 'none';
+        document.querySelector('.togle_thema_icon').src = '/static/img/icon/moon.png';
+        for (var i = 0; i < document.querySelectorAll('.list').length;i++){
+            document.querySelectorAll('.list')[i].dataset.theme = 'none';
+            document.querySelectorAll('.code_redirect_icon')[i].src = '/static/img/icon/list_code.png';
+            document.querySelectorAll('.code_line_icon')[i].src = '/static/img/icon/line.png';
+        }
+    }
+
+    togle ? darkmode() : whitemode();
+    function togle_thema() {
+        togle = !togle
+        localStorage.setItem("thema", togle);
+        togle ? darkmode() : whitemode();
+    }
+</script>
+
 </body>
 </html>

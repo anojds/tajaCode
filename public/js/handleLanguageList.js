@@ -6,10 +6,11 @@ json = JSON.parse(json);
 for(i=0;i<json.length;i++) {
     var div = document.createElement('div');
     div.className = "list";
-    div.id = json[i].redirect
+    div.id = json[i].redirect;
     div.onclick = function () {
         location.href = "list/" + this.id;
     };
+    JSON.parse(localStorage.getItem("thema")) ? div.dataset.theme = 'none' : div.dataset.theme = 'none';
     contentDiv.appendChild(div);
 
     var img = document.createElement('img');

@@ -22,7 +22,7 @@
     <div class="endDiv_wrapper">
         <div class="endDiv">
             <img src="/static/img/icon/like.png" width="30" height="30" style="margin-top: 15px">
-            
+
             <span class="endDiv_title2" style="margin-top: 10px;font-size: 13px;">
                 <%= name %>
             </span>
@@ -43,6 +43,10 @@
                 <div class="endDiv_list_3">
                     <span class="endDiv_list_3_title">키보드 입력수</span>
                     <span id="endDiv_list_3_value">0번</span>
+                </div>
+                <div class="endDiv_list_4">
+                    <span class="endDiv_list_4_title">정확도</span>
+                    <span id="endDiv_list_4_value">0%</span>
                 </div>
             </div>
         </div>
@@ -70,6 +74,7 @@
         </div>
     </div>
     <div class="info">
+        <img src="/static/img/icon/moon.png" width="25" height="25" class="togle_thema_icon" onclick="togle_thema()">
         <span class="timer_title">타이머</span>
         <span id="timer_value">00:00</span>
         <span class="ota_title">오타</span>
@@ -81,8 +86,46 @@
     <script>
         var codeText = `<%= data %>`;
         var codeName = `<%= name %>`;
+        var isEnd = false
         codeText = codeText.replace(/&#34;/g, '"');
-        window.addEventListener("keydown", (e) => event.keyCode == 32 ? event.preventDefault() : false)
+        codeText = codeText.replace(/&#39;/g, "'");
+        codeText = codeText.replace(/&gt;/g, '>');
+        codeText = codeText.replace(/&lt;/g, '<');
+        codeText = codeText.replace(/&amp;/g, '&');
+        window.addEventListener("keydown", (e) => event.keyCode == 32 ? event.preventDefault() : false);
+    </script>
+    <script>
+        togle = JSON.parse(localStorage.getItem("thema"))
+        function darkmode() {
+            document.querySelector('body').dataset.theme = 'dark';
+            document.querySelector('.header').dataset.theme = 'dark';
+            document.querySelector('.title_language_2').dataset.theme = 'dark';
+            document.querySelector('.header_progress_wrapper').dataset.theme = 'dark';
+            document.querySelector('.info').dataset.theme = 'dark';
+            document.querySelector('.timer_title').dataset.theme = 'dark';
+            document.querySelector('.keyboard').dataset.theme = 'dark';
+            document.querySelector('#header_percent').dataset.theme = 'dark';
+            document.querySelector('.header').dataset.theme = 'dark';
+            document.querySelector('.togle_thema_icon').src = '/static/img/icon/sun.png';
+        }
+        function whitemode() {
+            document.querySelector('body').dataset.theme = 'none';
+            document.querySelector('.header').dataset.theme = 'none';
+            document.querySelector('.title_language_2').dataset.theme = 'none';
+            document.querySelector('.header_progress_wrapper').dataset.theme = 'none';
+            document.querySelector('.info').dataset.theme = 'none';
+            document.querySelector('.timer_title').dataset.theme = 'none';
+            document.querySelector('.keyboard').dataset.theme = 'none';
+            document.querySelector('#header_percent').dataset.theme = 'none';
+            document.querySelector('.header').dataset.theme = 'none';
+            document.querySelector('.togle_thema_icon').src = '/static/img/icon/moon.png';
+        }
+        togle ? darkmode() : whitemode();
+        function togle_thema() {
+            togle = !togle
+            localStorage.setItem("thema", togle);
+            togle ? darkmode() : whitemode();
+        }
     </script>
     <script type="text/javascript" src="/static/js/handleText.js"></script>
 </body>

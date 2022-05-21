@@ -4,6 +4,10 @@ body {
     overflow: hidden;
 }
 
+body[data-theme="dark"] {
+    background-color: #0D1117;
+}
+
 /* 단어 div */
 .word {
     height: 90vh;
@@ -16,7 +20,7 @@ body {
     overflow-y: auto;
 }
 
-.word > span {
+.word>span {
     font-size: 14px;
 }
 
@@ -35,7 +39,11 @@ body {
     align-items: center;
     flex-direction: column;
     border: 1.5px solid #E5E6E8;
-    min-width: 220px; 
+    min-width: 220px;
+}
+
+.info[data-theme="dark"] {
+    border: 1.5px solid #30363d;
 }
 
 
@@ -49,8 +57,18 @@ body {
     padding: 5px 25px 5px 25px;
     font-weight: 900;
     border-radius: 20px;
-    background-color:  rgba(181, 220, 255, 0.728);
+    background-color: rgba(181, 220, 255, 0.728);
     color: rgb(31, 92, 225);
+}
+
+.timer_title[data-theme="dark"] {
+    background-color: #1792fe57;
+    color: #67b8ff;
+}
+
+    
+.dark {
+    width: 100%;
 }
 
 #ota_value {
@@ -63,7 +81,7 @@ body {
     padding: 5px 25px 5px 25px;
     font-weight: 900;
     border-radius: 20px;
-    background-color:  rgba(255, 0, 0, 0.239);
+    background-color: rgba(255, 0, 0, 0.239);
     color: rgb(255, 27, 27);
     margin-top: 40px;
 }
@@ -72,7 +90,7 @@ body {
     padding: 5px 25px 5px 25px;
     font-weight: 900;
     border-radius: 20px;
-    background-color:  rgba(175, 175, 175, 0.239);
+    background-color: rgba(175, 175, 175, 0.239);
     color: rgb(154, 153, 153);
     margin-top: 30px;
 }
@@ -84,7 +102,7 @@ body {
 
 .notnowcode {
     color: rgba(137, 133, 133, 0.728);
-    background-color:  rgba(181, 220, 255, 0.728);
+    background-color: rgba(181, 220, 255, 0.728);
 }
 
 .clear {
@@ -104,6 +122,13 @@ body {
     margin-top: 15px;
 }
 
+.keyboard[data-theme="dark"] {
+    background-color: rgb(154, 153, 153);
+    box-shadow: 0px 5px 0px #34373B;
+    color: #34373B;
+}
+
+
 .this_info {
     width: 100%;
     height: 30px;
@@ -121,6 +146,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    visibility: hidden;
 }
 
 .endDiv {
@@ -152,63 +178,33 @@ body {
 .endDiv_title2 {
     font-weight: 700;
     font-size: 35px;
-    color: rgb(190, 190, 190);
+    color: rgb(161, 161, 161);
     transform: rotate(1deg);
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
-.endDiv_list_1 {
+.endDiv_list_1, .endDiv_list_2, .endDiv_list_3, .endDiv_list_4 {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.endDiv_list_1_title {
+.endDiv_list_4_title,.endDiv_list_3_title,.endDiv_list_2_title,.endDiv_list_1_title {
     color: rgb(75, 75, 75);
     font-weight: 900;
     font-size: 20px;
+    margin-right: 80px;
 }
 
-#endDiv_list_1_value {
+#endDiv_list_1_value, #endDiv_list_2_value, #endDiv_list_3_value, #endDiv_list_4_value {
     font-size: 20px;
     color: #c5c5c6;
 }
 
-.endDiv_list_2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
-}
-
-.endDiv_list_2_title {
-    color: rgb(75, 75, 75);
-    font-weight: 900;
-    font-size: 20px;
-}
-
-#endDiv_list_2_value {
-    font-size: 20px;
-    color: #c5c5c6;
-}
-
-.endDiv_list_3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.endDiv_list_3_title {
-    color: rgb(75, 75, 75);
-    font-weight: 900;
-    font-size: 20px;
-}
-
-#endDiv_list_3_value {
-    font-size: 20px;
-    color: #c5c5c6;
+.togle_thema_icon {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
 }

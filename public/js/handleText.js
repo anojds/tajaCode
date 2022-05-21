@@ -55,57 +55,59 @@ function changeProgress() {
 }
 
 function keyboard_down(key) {
-    pressIndex++
-    if (index === text.length - 1) {
-        changeProgress()
-        document.getElementById(index).className = 'not';
-        const select_span = document.getElementById(index);
-        select_span.className = 'not';
-        select_span.className = 'clear';
-        clearInterval(timer);
-    } else {
-        if (text[index] === key) {
-            document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
-            changeProgress();
-            oneTimef();
+    if (!isEnd) {
+        pressIndex++
+        if (index === text.length - 1) {
+            changeProgress()
             document.getElementById(index).className = 'not';
             const select_span = document.getElementById(index);
             select_span.className = 'not';
             select_span.className = 'clear';
-            index = index + 1;
-            document.getElementById(index).className = 'notnowcode';
-            if (text[index] === " ") {
-                document.getElementById('now_code').innerText = "Space"
-            } else if (document.getElementById(index).tagName === "BR") {
-                document.getElementById('now_code').innerText = "Enter"
-            } else {
-                document.getElementById('now_code').innerText = text[index]
-            }
-            return;
-        } else if (key === "Enter" && document.getElementById(index).tagName === "BR") {
-            document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
-            changeProgress()
-            document.getElementById(index).className = 'not';
-            const select_span = document.getElementById(index);
-            select_span.className = 'clear';
-            index = index + 1;
-            document.getElementById(index).className = 'notnowcode';
-            if (text[index] === " ") {
-                document.getElementById('now_code').innerText = "Space";
-            } else if (document.getElementById(index).tagName === "BR") {
-                document.getElementById('now_code').innerText = "Enter";
-            } else {
-                document.getElementById('now_code').innerText = text[index];
-            }
-            return;
-        } else if (key === "Shift") {
-            return;
+            end();
         } else {
-            document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
-            ota = ota + 1;
-            document.getElementById('endDiv_list_2_value').innerText = ota + "개";
-            document.getElementById('ota_value').innerText = ota + "개";
-            return;
+            if (text[index] === key) {
+                document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
+                changeProgress();
+                oneTimef();
+                document.getElementById(index).className = 'not';
+                const select_span = document.getElementById(index);
+                select_span.className = 'not';
+                select_span.className = 'clear';
+                index = index + 1;
+                document.getElementById(index).className = 'notnowcode';
+                if (text[index] === " ") {
+                    document.getElementById('now_code').innerText = "Space"
+                } else if (document.getElementById(index).tagName === "BR") {
+                    document.getElementById('now_code').innerText = "Enter"
+                } else {
+                    document.getElementById('now_code').innerText = text[index]
+                }
+                return;
+            } else if (key === "Enter" && document.getElementById(index).tagName === "BR") {
+                document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
+                changeProgress()
+                document.getElementById(index).className = 'not';
+                const select_span = document.getElementById(index);
+                select_span.className = 'clear';
+                index = index + 1;
+                document.getElementById(index).className = 'notnowcode';
+                if (text[index] === " ") {
+                    document.getElementById('now_code').innerText = "Space";
+                } else if (document.getElementById(index).tagName === "BR") {
+                    document.getElementById('now_code').innerText = "Enter";
+                } else {
+                    document.getElementById('now_code').innerText = text[index];
+                }
+                return;
+            } else if (key === "Shift") {
+                return;
+            } else {
+                document.getElementById('endDiv_list_3_value').innerText = pressIndex + "번";
+                ota = ota + 1;
+                document.getElementById('endDiv_list_2_value').innerText = ota + "개";
+                document.getElementById('ota_value').innerText = ota + "개";
+                return;
+            }
         }
     }
 }
@@ -113,6 +115,6 @@ function keyboard_down(key) {
 function oneTimef() {
     if (oneTime) {
         start()
-        oneTime = false
+        oneTime = false;
     }
 }

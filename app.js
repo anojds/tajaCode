@@ -28,8 +28,12 @@ app.get(`/code/:id`, (req, res) => {
 });
 
 app.get(`/list/:lang`, (req, res) => {
+    var html = ""
     fs.readFile(`public/json/list.json`, "utf8", (err, data) => {
-        res.render('listDetail.ejs', { 'json': data, 'language': req.params.lang})
+        json = JSON.parse(data);
+        let lan = req.params.lang;
+
+        res.render('listDetail.ejs', { 'json': data, 'language': req.params.lang,})
     })
 })
 app.get(`/list`, (req, res) => {
