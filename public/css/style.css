@@ -105,9 +105,17 @@ body[data-theme="dark"] {
     background-color: rgba(181, 220, 255, 0.728);
 }
 
+.notnowcode[data-theme="dark"] {
+    color: rgb(0, 0, 0)
+}
+
 .clear {
     color: #383F45;
     font-weight: 700;
+}
+
+.clear[data-theme="dark"] {
+    color: #c2d5e5;
 }
 
 .keyboard {

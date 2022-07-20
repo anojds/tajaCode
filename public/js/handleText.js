@@ -41,6 +41,8 @@ function getTxtFile() {
         }
         index1 = index1 + 1
     }
+    togle = JSON.parse(localStorage.getItem("thema"))
+    togle ? darkmode() : whitemode();
 }
 
 getTxtFile()

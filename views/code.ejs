@@ -107,6 +107,10 @@
             document.querySelector('#header_percent').dataset.theme = 'dark';
             document.querySelector('.header').dataset.theme = 'dark';
             document.querySelector('.togle_thema_icon').src = '/static/img/icon/sun.png';
+            var worldSpan = document.querySelectorAll('.word > span')
+            worldSpan.forEach(function (span) {
+                span.dataset.theme = 'dark'
+            });
         }
         function whitemode() {
             document.querySelector('body').dataset.theme = 'none';
@@ -118,9 +122,13 @@
             document.querySelector('.keyboard').dataset.theme = 'none';
             document.querySelector('#header_percent').dataset.theme = 'none';
             document.querySelector('.header').dataset.theme = 'none';
+            document.querySelector('.word').dataset.theme = 'none';
             document.querySelector('.togle_thema_icon').src = '/static/img/icon/moon.png';
+            var worldSpan = document.querySelectorAll('.word > span')
+            worldSpan.forEach(function (span) {
+                span.dataset.theme = 'none'
+            });
         }
-        togle ? darkmode() : whitemode();
         function togle_thema() {
             togle = !togle
             localStorage.setItem("thema", togle);
